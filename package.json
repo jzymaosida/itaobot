@@ -9,7 +9,7 @@
     "build:rate": "rollup -c ./rollup.rate.js --environment NODE_ENV:production"
   },
   "keywords": [],
-  "author": "",
+  "author": "jzymaosida",
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
