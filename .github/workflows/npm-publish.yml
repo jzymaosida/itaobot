@@ -13,13 +13,21 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on:  ubuntu-20.04
     steps:
+      - uses: actions/create-release@v1
+        with:
+          tag_name: v${{steps.version.outputs.value}}
+          release_name: v${{steps.version.outputs.value}}
+          body: ${{steps.description.outputs.content}}
+          draft: false
+          prerelease: false
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v1  
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
              npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]"
+             
       - run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
