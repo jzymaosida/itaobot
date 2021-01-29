@@ -1,0 +1,18 @@
+{
+  "name": "itaobot-kunquer",
+  "version": "1.1.0",
+  "description": "",
+  "main": "dove.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jzymaosida/itaobot.git"
+  },
+  "keywords": [],
+  "author": "itaobot",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jzymaosida/itaobot/issues"
+  },
+  "homepage": "https://github.com/jzymaosida/itaobot#readme"
+}
