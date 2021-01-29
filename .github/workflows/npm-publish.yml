@@ -13,25 +13,33 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on:  ubuntu-20.04
     steps:   
-      - uses: ashley-taylor/read-json-property-action@v1.0
+      - name: 1. 检查
+        uses: actions/checkout@v2
+      - name: 2. 读取当前版本号
+        id: version
+        uses: ashley-taylor/read-json-property-action@v1.0
         with:
-          path: ../package.json
-          property: version
-      - uses: actions/create-release@latest
+          path: ./package.json
+          property: version     
+      - name: 3. 创建GitHub Release
+        id: create_release
+        uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tag_name: v${{steps.version.outputs.value}}
-          release_name: v${{steps.version.outputs.value}}    
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1  
+          release_name: v${{steps.version.outputs.value}}
+          body: ${{steps.description.outputs.content}}
+          draft: false
+          prerelease: false
+      - name: 4. 发布NPM包
+        uses: actions/setup-node@v1  
         with:
           node-version: 12
           registry-url: https://registry.npmjs.org/
       - run: npm ci
-             npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]"
-             
-      - run: npm publish
+             npx standard-version --releaseCommitMessageFormat "chore(release):${SPACE_CHAR}{{currentTag}} [skip ci]"             
+             npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
 
