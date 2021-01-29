@@ -12,7 +12,11 @@ jobs:
   publish-npm:   
     if: "!contains(github.event.head_commit.message, 'skip ci')"
     runs-on:  ubuntu-20.04
-    steps:
+    steps:   
+      - uses: ashley-taylor/read-json-property-action@v1.0
+        with:
+          path: ./package.json
+          property: version
       - uses: actions/create-release@latest
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
