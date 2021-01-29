@@ -25,17 +25,17 @@ jobs:
         with:
           path: ./package.json
           property: version     
-#      - name: 4. 创建GitHub Release
-#        id: create_release
-#        uses: actions/create-release@latest
-#        env:
-#          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-#        with:
-#          tag_name: v${{steps.version.outputs.value}}
-#          release_name: v${{steps.version.outputs.value}}
-#          body: ${{steps.description.outputs.content}}
-#          draft: false
-#          prerelease: false
+      - name: 4. 创建GitHub Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{steps.version.outputs.value}}
+          release_name: v${{steps.version.outputs.value}}
+          body: ${{steps.description.outputs.content}}
+          draft: false
+          prerelease: false
       - name: 5. 发布NPM包
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
