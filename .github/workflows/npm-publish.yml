@@ -37,7 +37,7 @@ jobs:
 #          draft: false
 #          prerelease: false
       - name: 5. 发布NPM包
-        run:
+        run: |
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
           npm publish
         env:
