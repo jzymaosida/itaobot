@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+
+<div id="app">
+    <number :quantity.sync="quantity" @qc="qc1"></number>
+</div>
+<script src="../dist/vue-number.umd.js"></script>
+<script>
+    a = new Vue({
+        el: "#app",
+        data: {
+            quantity: "1"
+        },
+        methods: {
+            qc1() {
+                console.log(123)
+            }
+        }
+
+    })
+</script>
+</body>
+</html>
