@@ -1,8 +1,8 @@
 {
   "name": "itaobot-kunquer",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "",
-  "main": "dove.js",
+  "main": "src/index.js",
   "scripts": {
     "build:number": "rollup -c ./rollup.number.js --environment NODE_ENV:production",
     "build:lang": "rollup -c ./rollup.lang.js --environment NODE_ENV:production",

@@ -6,7 +6,7 @@ const terser = require('gulp-terser');
 
 
 function es(){
-    return src('./dove.js')
+    return src('./src/common/*.js')
         .pipe(terser())
         .pipe(dest('./dist'));
 }
