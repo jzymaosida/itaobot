@@ -19,6 +19,7 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
+          registry-url: https://registry.npmjs.org/
       - name: 2+. 安装需要
         run: npm ci
       - name: 3. 读取当前版本号
@@ -39,9 +40,7 @@ jobs:
           draft: false
           prerelease: false
       - name: 5. 发布包 npmjs
-        run: |
-          npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
-          npm publish
+        run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
           
