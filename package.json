@@ -1,13 +1,13 @@
 {
   "name": "itaobot-kunquer",
-  "version": "1.0.9",
+  "version": "1.0.10",
   "description": "",
   "main": "dove.js",
   "scripts": {
     "build:number": "rollup -c ./rollup.number.js --environment NODE_ENV:production",
     "build:lang": "rollup -c ./rollup.lang.js --environment NODE_ENV:production",
     "build:rate": "rollup -c ./rollup.rate.js --environment NODE_ENV:production",
-    "prepublish": "gulp"
+    "prepublishOnly": "gulp"
   },
   "keywords": [],
   "author": "jzymaosida",
