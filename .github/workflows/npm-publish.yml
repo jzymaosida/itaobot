@@ -19,8 +19,8 @@ jobs:
         uses: actions/setup-node@v1
         with:
           node-version: 12
-       - name: 2+. 安装需要
-         run: npm ci
+      - name: 2+. 安装需要
+        run: npm ci
       - name: 3. 读取当前版本号
         id: version
         uses: ashley-taylor/read-json-property-action@v1.0
