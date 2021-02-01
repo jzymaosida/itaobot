@@ -38,12 +38,18 @@ jobs:
           body: ${{steps.description.outputs.content}}
           draft: false
           prerelease: false
-      - name: 5. 发布NPM包
+      - name: 5. 发布NPM包 npmjs
         run: |
           npm config set //registry.npmjs.org/:_authToken=$NODE_AUTH_TOKEN
           npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
+      - name: 6. 发布git包 gpr
+        run: |
+          npm config set //npm.pkg.github.com/:_authToken=$NODE_AUTH_TOKEN
+          npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
      
 
   
