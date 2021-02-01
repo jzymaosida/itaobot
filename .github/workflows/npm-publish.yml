@@ -43,23 +43,5 @@ jobs:
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
-          
-  publish-gpr:   
-    if: "!contains(github.event.head_commit.message, 'skip ci')"
-    runs-on: ubuntu-latest
-    steps:
-      - name: 1. 检查
-        uses: actions/checkout@v2
-      - name: 2. 设置Node.js
-        uses: actions/setup-node@v1
-        with:
-          node-version: 12
-          registry-url: https://npm.pkg.github.com/
-      - name: 2+. 安装需要
-        run: npm ci
-      - name: 3. 发布包 gpr
-        run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
 
   
