@@ -28,8 +28,7 @@ jobs:
           -  **/.git*/**
           - node_modules/**
           - node_modules/**/*
-        security: strict
-        dry-run: true
+        security: strict      
         dangerous-clean-slate: true
         
       
