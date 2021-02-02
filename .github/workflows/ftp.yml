@@ -30,6 +30,7 @@ jobs:
           - node_modules/**/*
         security: strict
         dry-run: true
+        dangerous-clean-slate: true
         
       
 
