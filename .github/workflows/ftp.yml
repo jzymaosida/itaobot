@@ -23,6 +23,11 @@ jobs:
         username: test
         password: ${{ secrets.FTP_PASSWORD }}
         exclude: '.ftp-deploy-sync-state.json'
+          - .git*
+          - .git*/**
+          - **/.git*/**
+          - node_modules/**
+          - node_modules/**/*
         timeout-minutes: 15
 
   
