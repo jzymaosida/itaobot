@@ -29,6 +29,7 @@ jobs:
           - node_modules/**
           - node_modules/**/*
         security: strict
+        dry-run: true
         
       
 
