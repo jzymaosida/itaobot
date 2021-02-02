@@ -22,5 +22,6 @@ jobs:
         server: 121.196.38.190
         username: test
         password: ${{ secrets.FTP_PASSWORD }}
+        exclude: '.ftp-deploy-sync-state.json'
 
   
