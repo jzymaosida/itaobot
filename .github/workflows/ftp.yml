@@ -27,6 +27,7 @@ jobs:
           -  **/.git*/**
           - node_modules/**
           - node_modules/**/*
+          - '.ftp-deploy-sync-state.json'
         timeout-minutes: 15
 
   
