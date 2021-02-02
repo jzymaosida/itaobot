@@ -12,6 +12,7 @@ jobs:
   web-deploy:
     name: 🎉 Deploy
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2.3.2
@@ -27,7 +28,8 @@ jobs:
           -  **/.git*/**
           - node_modules/**
           - node_modules/**/*
-          - '.ftp-deploy-sync-state.json'
-        timeout-minutes: 15
+        security: strict
+        
+      
 
   
