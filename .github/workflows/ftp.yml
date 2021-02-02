@@ -23,5 +23,6 @@ jobs:
         username: test
         password: ${{ secrets.FTP_PASSWORD }}
         exclude: '.ftp-deploy-sync-state.json'
+        timeout-minutes: 15
 
   
