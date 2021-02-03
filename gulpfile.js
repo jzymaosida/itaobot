@@ -10,4 +10,5 @@ function es(){
         .pipe(terser())
         .pipe(dest('./dist'));
 }
+
 exports.default = es;
