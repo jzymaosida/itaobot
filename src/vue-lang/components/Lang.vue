@@ -1,23 +1,24 @@
 <template>
-  <div
-    :style="{ height: height + 'px', lineHeight: height + 'px' }"
-    class="lang-room"
-  >
-    <div>{{ name }}<span class="arrow"></span></div>
-    <div class="lang-box" :style="styleObject">
-      <div
-        v-for="(lang, key) of langList"
-        :key="key"
-        class="lang-item"
-        :class="key === currentLang ? 'lang-active' : ''"
-        @click="toggleLang(key)"
-      >
-        {{ lang }}  <svg class="icon" aria-hidden="true" v-if="key === currentLang">
-                     <use xlink:href="#icon-gou"></use>
-                    </svg>
-      </div>
+    <div
+        :style="{ height: height + 'px', lineHeight: height + 'px' }"
+        class="lang-room"
+    >
+        <div>{{list[currentLang] }}<span class="arrow"></span></div>
+        <div :style="styleObject" class="lang-box">
+            <div
+                v-for="(lang, key) of langList"
+                :key="key"
+                :class="key === currentLang ? 'lang-active' : ''"
+                class="lang-item"
+                @click="toggleLang(key)"
+            >
+                {{ lang }}
+                <svg v-if="key === currentLang" aria-hidden="true" class="icon">
+                    <use xlink:href="#icon-gou"></use>
+                </svg>
+            </div>
+        </div>
     </div>
-  </div>
 </template>
 
 <script>
@@ -31,10 +32,6 @@ export default {
             }
         },
         currentLang: {
-            type: String,
-            required: true,
-        },
-        name: {
             type: String,
             required: true,
         },
@@ -64,14 +61,14 @@ export default {
             return this.list;
         },
         styleObject() {
-            return {       
+            return {
                 "--color-hover": this.hover,
             }
         }
     },
     methods: {
         toggleLang(key) {
-            if(key === this.currentLang) {
+            if (key === this.currentLang) {
                 return;
             }
             let pathname = location.pathname;
@@ -79,10 +76,10 @@ export default {
             const isLang = location.pathname.match(/\/([a-z]+)/) && location.pathname.match(/\/([a-z]+)/)[1];
             if (list.includes(isLang)) {
                 pathname = location.pathname.match(/\/([a-z]+)(.*)*/)[2] || "";
-            }           
+            }
             let path = "/" + key + pathname + location.search;
             if (key === 'en') {
-              path =  pathname + location.search;
+                path = pathname + location.search;
             }
             location.href = location.origin + path;
         }
@@ -92,40 +89,41 @@ export default {
 
 <style scoped>
 .icon {
-    width: 1em; height: 1em;
+    width: 1em;
+    height: 1em;
     vertical-align: -0.15em;
     fill: currentColor;
     overflow: hidden;
 }
 
 .lang-room {
-  display: inline-block;
-  position: relative;
-  padding: 0 5px 0 5px;
-  width: auto;
-  cursor: pointer;
+    display: inline-block;
+    position: relative;
+    padding: 0 5px 0 5px;
+    width: auto;
+    cursor: pointer;
 }
 
 .lang-room:hover .lang-box {
-  display: block;
+    display: block;
 }
 
 .lang-box {
-  position: absolute;
-  display: none;
-  width: 180px;
-  box-shadow: 0 8px 16px #333;
-  z-index: 100;
-  background: #fff;
+    position: absolute;
+    display: none;
+    width: 180px;
+    box-shadow: 0 8px 16px #333;
+    z-index: 100;
+    background: #fff;
 }
 
 .lang-item {
-  padding: 8px 0 8px 12px;
-  cursor: pointer;
+    padding: 8px 0 8px 12px;
+    cursor: pointer;
 }
 
 .lang-item:hover {
-  color: var(--color-hover);
+    color: var(--color-hover);
 }
 
 .lang-active {
@@ -134,17 +132,16 @@ export default {
 }
 
 
-
 .arrow {
-  display: inline-block;
-  vertical-align: middle;
-  margin-top: -1px;
-  margin-left: 6px;
-  width: 0;
-  height: 0;
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 5px solid #4f5959;
+    display: inline-block;
+    vertical-align: middle;
+    margin-top: -1px;
+    margin-left: 6px;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 5px solid #4f5959;
 }
 
 
