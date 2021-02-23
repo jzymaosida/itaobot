@@ -10,8 +10,17 @@
 
 <div id="app">
     <number :quantity.sync="quantity" @qc="qc1"></number>
+    <div style="height: 200px"></div>
+    <div style="position: fixed; top: 20px; width: 200px; height: 200px">
+        <image-magnifier src="https://www.itaobot.com/api/image/origin/2021/02/09/f8088987b524773e30c73bc94afaaea6.jpg" zoom-src="https://www.itaobot.com/api/image/origin/2021/02/09/f8088987b524773e30c73bc94afaaea6.jpg" width="430" mask-width="200"
+                         mask-height="200" zoom-width="400" zoom-height="400" ></image-magnifier>
+    </div>
+    <div style="height: 1800px"></div>
+
+
 </div>
 <script src="../dist/vue-number.umd.js"></script>
+<script src="../dist/vue-image-magnifier.umd.js"></script>
 <script>
     a = new Vue({
         el: "#app",
@@ -23,7 +32,6 @@
                 console.log(123)
             }
         }
-
     })
 </script>
 </body>

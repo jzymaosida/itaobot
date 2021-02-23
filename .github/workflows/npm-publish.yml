@@ -22,13 +22,15 @@ jobs:
           registry-url: https://registry.npmjs.org/
       - name: 2+. 安装需要
         run: npm ci
-      - name: 3. 读取当前版本号
+      - name: 3-. 运行脚本
+        run: gulp
+      - name: 4. 读取当前版本号
         id: version
         uses: ashley-taylor/read-json-property-action@v1.0
         with:
           path: ./package.json
           property: version     
-      - name: 4. 创建GitHub Release
+      - name: 5. 创建GitHub Release
         id: create_release
         uses: actions/create-release@latest
         env:
@@ -39,7 +41,7 @@ jobs:
           body: ${{steps.description.outputs.content}}
           draft: false
           prerelease: false
-      - name: 5. 发布包 npmjs
+      - name: 6. 发布包 npmjs
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{secrets.NODE_AUTH_TOKEN}}
