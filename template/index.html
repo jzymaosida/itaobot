@@ -3,30 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Document31231</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="https://unpkg.com/uikit@3.6.15/dist/css/uikit.min.css" />
+    <script src="https://unpkg.com/uikit@3.6.15/dist/js/uikit.min.js"></script>
+    <script src="https://unpkg.com/uikit@3.6.15/dist/js/uikit-icons.min.js"></script>
 </head>
 <body>
 
 <div id="app">
-    <number :quantity.sync="quantity" @qc="qc1"></number>
-    <lang height="auto" class="uk-text-small" current-lang="es" :list='{ "en": "English", "zh": "简体中文", "es": "Español"}'> <lang/>
+    <bind></bind>
 
 
 
 </div>
-<script src="../dist/vue-number.umd.js"></script>
-<script src="../dist/vue-lang.umd.js"></script>
+<script src="../dist/vue-bind.umd.js"></script>
 <script>
     a = new Vue({
         el: "#app",
         data: {
-            quantity: "1"
+
         },
         methods: {
-            qc1() {
-                console.log(123)
-            }
+
         }
     })
 </script>

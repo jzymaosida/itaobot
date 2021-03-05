@@ -7,6 +7,7 @@
     "build:number": "rollup -c ./rollup.number.js --environment NODE_ENV:production",
     "build:lang": "rollup -c ./rollup.lang.js --environment NODE_ENV:production",
     "build:rate": "rollup -c ./rollup.rate.js --environment NODE_ENV:production",
+    "build:bind": "rollup -c ./rollup.bind.js --environment NODE_ENV:production",
     "prepublishOnly": "gulp"
   },
   "keywords": [],
