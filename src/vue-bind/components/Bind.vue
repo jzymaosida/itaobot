@@ -18,7 +18,7 @@
                     </label>
                 </div>
                 <div class="uk-margin uk-text-center">
-                    <button class="uk-button uk-button-primary" type="submit" :disabled="!stop">{{ submitText }}</button>
+                    <button class="uk-button uk-button-primary" type="submit" :disabled="stop">{{ submitText }}</button>
                     <button class="uk-button uk-button-default uk-margin-left" type="reset" @click="$emit('avoid')">{{
                             cancelText
                         }}
