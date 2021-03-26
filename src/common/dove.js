@@ -166,7 +166,8 @@ class Dove {
             sign: this.sign(),
             lang: this.lang,
             query: query,
-            token: this.token()
+            token: this.token(),
+            terminal: this.terminal
         };
         let first = 0 == this.time();
         let retry = response => {
